@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Card"
+    app:cardBackgroundColor="@color/white"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/player_price"
+            style="@style/TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="12dp"
+            tools:text="$222M" />
+
+        <TextView
+            android:id="@+id/transfer_date"
+            style="@style/TitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Today" />
+
+        <ImageView
+            android:id="@+id/iv_player_picture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/transfer_date"
+            tools:src="@drawable/neymar" />
+
+        <ImageView
+            android:id="@+id/iv_team1_badge"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="12dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_player_picture"
+            tools:src="@drawable/man_utd" />
+
+        <TextView
+            android:id="@+id/tv_team1_name"
+            style="@style/BodyLarge"
+            android:layout_width="85dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_team1_badge"
+            app:layout_constraintStart_toEndOf="@+id/iv_team1_badge"
+            app:layout_constraintTop_toTopOf="@+id/iv_team1_badge"
+            tools:text="Manchester United" />
+
+        <ImageView
+            android:id="@+id/arrow_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_down_30dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_team1_name"
+            app:layout_constraintStart_toStartOf="@+id/iv_team1_badge"
+            app:layout_constraintTop_toBottomOf="@+id/iv_team1_badge"
+            android:layout_marginTop="4dp"/>
+
+        <ImageView
+            android:id="@+id/iv_team2_badge"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/arrow_down"
+            tools:src="@drawable/liverpool" />
+
+        <TextView
+            android:id="@+id/tv_team2_name"
+            style="@style/BodyLarge"
+            android:layout_width="85dp"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_team2_badge"
+            app:layout_constraintStart_toEndOf="@+id/iv_team2_badge"
+            app:layout_constraintTop_toTopOf="@+id/iv_team2_badge"
+            tools:text="Liverpool" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

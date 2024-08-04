@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/standings_rank"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="20" />
+
+    <LinearLayout
+        android:layout_width="175dp"
+        android:layout_height="24dp"
+        android:orientation="horizontal"
+        android:background="@drawable/league_table_background">
+
+        <ImageView
+            android:id="@+id/standings_badge"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="2dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/man_utd" />
+
+        <TextView
+            android:id="@+id/standings_name"
+            style="@style/BodyMedium"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Manchester United" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/standings_played"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="38" />
+
+    <TextView
+        android:id="@+id/standings_win"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="28" />
+
+    <TextView
+        android:id="@+id/standings_draw"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="7" />
+
+    <TextView
+        android:id="@+id/standings_lose"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="3" />
+
+    <TextView
+        android:id="@+id/standings_goal_diff"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="62" />
+
+    <TextView
+        android:id="@+id/standings_points"
+        style="@style/BodyMedium"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:background="@drawable/league_table_background"
+        tools:text="91" />
+
+</LinearLayout>

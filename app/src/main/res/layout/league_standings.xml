@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/league_table_background">
+
+    <TextView
+        android:id="@+id/league_name"
+        style="@style/TitleMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="4dp"
+        app:drawableStartCompat="@drawable/ic_trophy_24dp"
+        android:drawablePadding="4dp"
+        tools:text="Premier League" />
+
+    <include
+        android:id="@+id/league_standings_header"
+        layout="@layout/league_standings_header" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/league_standings_item"
+        tools:itemCount="20"/>
+
+</LinearLayout>

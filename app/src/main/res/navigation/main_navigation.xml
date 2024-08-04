@@ -3,16 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/navigation_home">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/navigation_home"
         android:name="com.dicoding.footy.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/matchesFragment"
+        android:id="@+id/navigation_matches"
         android:name="com.dicoding.footy.ui.matches.MatchesFragment"
         android:label="fragment_matches"
         tools:layout="@layout/fragment_matches" />
+    <fragment
+        android:id="@+id/navigation_players"
+        android:name="com.dicoding.footy.ui.players.PlayersFragment"
+        android:label="fragment_players"
+        tools:layout="@layout/fragment_players" />
+    <fragment
+        android:id="@+id/navigation_transfers"
+        android:name="com.dicoding.footy.ui.transfers.TransfersFragment"
+        android:label="fragment_transfers"
+        tools:layout="@layout/fragment_transfers" />
 </navigation>
