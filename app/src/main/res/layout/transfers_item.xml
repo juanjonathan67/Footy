@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/player_price"
+            android:id="@+id/tv_player_price"
             style="@style/TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             tools:text="$222M" />
 
         <TextView
-            android:id="@+id/transfer_date"
+            android:id="@+id/tv_transfer_date"
             style="@style/TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,11 +36,10 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
             android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/transfer_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_transfer_date"
             tools:src="@drawable/neymar" />
 
         <ImageView

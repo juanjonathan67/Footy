@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Card"
+    app:cardBackgroundColor="@color/white"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_player_name"
+            style="@style/TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Cristiano Ronaldo" />
+
+        <TextView
+            android:id="@+id/tv_player_age"
+            style="@style/TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@+id/tv_player_name"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="(37)" />
+
+        <TextView
+            android:id="@+id/tv_player_country"
+            style="@style/TitleMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_player_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:maxLines="1"
+            android:ellipsize="end"
+            tools:text="Portugal" />
+
+        <ImageView
+            android:id="@+id/bt_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_heart_filled_18dp" />
+
+        <ImageView
+            android:id="@+id/iv_player_picture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_favorite"
+            tools:src="@drawable/ronaldo" />
+
+        <TextView
+            android:id="@+id/tv_player_history"
+            style="@style/BodyMedium"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_player_country"
+            android:layout_margin="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            tools:text="Played for Manchester United in 2022" />
+
+        <TextView
+            android:id="@+id/tv_player_rating"
+            style="@style/TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_margin="8dp"
+            app:drawableStartCompat="@drawable/ic_star_20dp"
+            android:drawablePadding="4dp"
+            tools:text="6.81"/>
+
+        <TextView
+            android:id="@+id/tv_player_position"
+            style="@style/TitleMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_player_appearances"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            tools:text="Attacker"/>
+
+        <TextView
+            android:id="@+id/tv_player_appearances"
+            style="@style/BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_player_goals"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            tools:text="30 Appearances"/>
+
+
+        <TextView
+            android:id="@+id/tv_player_goals"
+            style="@style/BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_player_assists"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            tools:text="25 Goals"/>
+
+        <TextView
+            android:id="@+id/tv_player_assists"
+            style="@style/BodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_player_rating"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            tools:text="8 Assists"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
