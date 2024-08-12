@@ -16,10 +16,14 @@ import com.dicoding.footy.domain.model.MatchInfo
 import com.dicoding.footy.domain.repository.UserPreferencesRepository
 import com.dicoding.footy.ui.favoriteTeam.FavoriteTeamViewModel
 import com.dicoding.footy.utils.UiState
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment: Fragment() {
     private lateinit var _binding: FragmentHomeBinding
     private val binding get() = _binding
@@ -40,9 +44,11 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        homeViewModel.getNextMatchInfo(1, runBlocking { userPreferencesRepository.getFavoriteTeamId().first() })
+
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // TODO Check local database for created at if it is a new day
+                // Check local database for created at if it is a new day
                 homeViewModel.nextMatchInfo
                     .collect {
                         when (it) {
@@ -66,7 +72,21 @@ class HomeFragment: Fragment() {
         binding.headerHome.tvHeaderMatchLabel.text = matchInfo.status
         binding.headerHome.tvHeaderCompetitionName.text = matchInfo.competition
         binding.headerHome.tvHeaderStadiumName.text = matchInfo.stadium
-        binding.headerHome.tvHeaderMatchScore.text = "${matchInfo.team1Score} - ${matchInfo.team2Score}"
+
+        val stringBuilder = StringBuilder()
+        val team1Score = matchInfo.team1Score
+        if (team1Score == "null") {
+            stringBuilder.append("0 - ")
+        } else {
+            stringBuilder.append("$team1Score -")
+        }
+        val team2Score = matchInfo.team2Score
+        if (team2Score == "null") {
+            stringBuilder.append("0")
+        } else {
+            stringBuilder.append(team2Score)
+        }
+        binding.headerHome.tvHeaderMatchScore.text = stringBuilder.toString()
 
         Glide.with(requireContext())
             .load(matchInfo.team1Badge)

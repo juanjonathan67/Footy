@@ -13,9 +13,11 @@ import com.dicoding.footy.domain.repository.UserPreferencesRepository
 import com.dicoding.footy.ui.favoriteTeam.FavoriteTeamActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -24,16 +26,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        runBlocking {
-            userPreferencesRepository.getFavoriteTeamId()
-                .collect {
-                    if (it == 0) {
-                        startActivity(Intent(this@MainActivity, FavoriteTeamActivity::class.java))
-                    }
-                }
-        }
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -41,16 +33,18 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
         navController = navHostFragment.navController
 
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_matches, R.id.navigation_transfers, R.id.navigation_players
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.navigation_home, R.id.navigation_matches, R.id.navigation_transfers, R.id.navigation_players
+//            )
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
         navView.setupWithNavController(navController)
 
         bottomNavItemChangeListener(navView)
+
+        supportActionBar?.hide()
     }
 
     private fun bottomNavItemChangeListener(navView: BottomNavigationView) {

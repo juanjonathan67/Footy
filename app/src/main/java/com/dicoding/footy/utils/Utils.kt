@@ -7,7 +7,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 val dateFormat: DateTimeFormatter = DateTimeFormatter.ofPattern("E, d MMM y")
-val timeFormat: DateTimeFormatter = DateTimeFormatter.ofPattern("H:m")
+val timeFormat: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm")
 
 fun timestampToInstant(timestamp: String): Instant = Instant.ofEpochSecond(timestamp.toLong())
 

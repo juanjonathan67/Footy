@@ -1,18 +1,23 @@
 package com.dicoding.footy.ui.favoriteTeam
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.footy.MainActivity
+import com.dicoding.footy.R
 import com.dicoding.footy.databinding.ActivityFavoriteTeamBinding
 import com.dicoding.footy.domain.model.FavoriteTeamItem
 import com.dicoding.footy.domain.repository.UserPreferencesRepository
 import com.dicoding.footy.utils.UiState
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
@@ -27,13 +32,20 @@ class FavoriteTeamActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        runBlocking {
+            if (userPreferencesRepository.getFavoriteTeamId().first() != 0) {
+                startActivity(Intent(this@FavoriteTeamActivity, MainActivity::class.java))
+            }
+        }
         binding = ActivityFavoriteTeamBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.searchBarFavoriteTeam.setOnFocusChangeListener { _, hasFocus ->
-            if (!hasFocus) {
+        binding.searchBarFavoriteTeam.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 favoriteTeamViewModel.searchTeam(binding.searchBarFavoriteTeam.text.toString())
+                return@setOnEditorActionListener true
             }
+            false
         }
 
         favoriteTeamAdapter = FavoriteTeamAdapter(emptyList(), object : FavoriteTeamAdapter.OnItemClickCallback {
@@ -47,7 +59,9 @@ class FavoriteTeamActivity : AppCompatActivity() {
                     .setPositiveButton("Confirm") { dialog, _ ->
                         runBlocking { userPreferencesRepository.saveFavoriteTeamId(favoriteTeamItem.id) }
                         dialog.dismiss()
+                        startActivity(Intent(this@FavoriteTeamActivity, MainActivity::class.java))
                     }
+                    .show()
             }
         })
 

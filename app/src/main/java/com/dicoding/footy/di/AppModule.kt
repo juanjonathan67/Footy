@@ -18,6 +18,7 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -33,10 +34,18 @@ object AppModule {
     @Singleton
     fun provideFootyApiService(): FootyApiService {
         val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val headerInterceptor = Interceptor { chain ->
+            val req = chain.request()
+            val requestHeaders = req.newBuilder()
+                .addHeader("x-apisports-key", "f59b0020b58623cb69891745d0070a6f")
+                .build()
+            chain.proceed(requestHeaders)
+        }
         val client = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
+            .addInterceptor(headerInterceptor)
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()

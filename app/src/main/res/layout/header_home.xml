@@ -47,11 +47,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/header_score_ll"
         app:layout_constraintTop_toBottomOf="@id/tv_header_match_datetime"
+        android:layout_marginHorizontal="8dp"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="16dp">
@@ -60,7 +61,7 @@
             android:id="@+id/iv_header_team1_badge"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             tools:src="@drawable/man_utd" />
 
         <TextView
@@ -83,17 +84,18 @@
             android:layout_marginTop="4dp"
             android:maxWidth="120dp"
             android:textAlignment="center"
-            tools:text="Home"
-            tools:textColor="@color/blue"/>
+            android:textColor="@color/blue"
+            tools:text="Home"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/header_score_ll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_header_match_datetime"
+        android:layout_marginHorizontal="8dp"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="16dp">
@@ -102,7 +104,7 @@
             android:id="@+id/iv_header_team2_badge"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             tools:src="@drawable/liverpool" />
 
         <TextView
@@ -125,35 +127,39 @@
             android:layout_marginTop="4dp"
             android:maxWidth="120dp"
             android:textAlignment="center"
-            tools:text="Away"
-            tools:textColor="@color/red"/>
+            android:textColor="@color/red"
+            tools:text="Away"/>
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/tv_header_stadium_name"
         style="@style/BodyMedium"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="24dp"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:drawableStartCompat="@drawable/ic_pitch_24dp"
         android:drawablePadding="4dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         tools:text="Old Trafford"/>
 
     <TextView
         android:id="@+id/tv_header_competition_name"
         style="@style/BodyMedium"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="24dp"
-        android:gravity="center"
+        android:gravity="center_vertical|end"
         android:layout_margin="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:drawableEndCompat="@drawable/ic_trophy_24dp"
         android:drawablePadding="4dp"
+        android:maxLines="1"
+        android:ellipsize="end"
         tools:text="Premier League"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

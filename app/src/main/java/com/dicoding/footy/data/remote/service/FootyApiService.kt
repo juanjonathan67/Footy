@@ -14,6 +14,6 @@ interface FootyApiService {
     @GET("fixtures")
     suspend fun getNextFixturesByTeam(
         @Query("next") next: Int,
-        @Query("league") team: Int,
+        @Query("team") team: Int,
     ): FixturesByTeamResponse
 }
