@@ -136,7 +136,7 @@
             tools:text="(A)" />
 
         <TextView
-            android:id="@+id/header_stadium_name"
+            android:id="@+id/tv_header_stadium_name"
             style="@style/BodyMedium"
             android:layout_width="125dp"
             android:layout_height="24dp"
@@ -152,7 +152,7 @@
             tools:text="Old Trafford" />
 
         <TextView
-            android:id="@+id/header_competition_name"
+            android:id="@+id/tv_header_competition_name"
             style="@style/BodyMedium"
             android:layout_width="125dp"
             android:layout_height="24dp"

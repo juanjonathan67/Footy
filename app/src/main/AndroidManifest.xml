@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Footy"
         tools:targetApi="31">
         <activity
-            android:name=".ui.FavoriteTeamActivity"
+            android:name=".ui.favoriteTeam.FavoriteTeamActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Footy"
 include(":app")
-include(":core")

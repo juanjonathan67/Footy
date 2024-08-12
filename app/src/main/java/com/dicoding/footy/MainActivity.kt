@@ -1,5 +1,6 @@
 package com.dicoding.footy
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -8,14 +9,31 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.footy.databinding.ActivityMainBinding
+import com.dicoding.footy.domain.repository.UserPreferencesRepository
+import com.dicoding.footy.ui.favoriteTeam.FavoriteTeamActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.runBlocking
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
+    @Inject lateinit var userPreferencesRepository: UserPreferencesRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        runBlocking {
+            userPreferencesRepository.getFavoriteTeamId()
+                .collect {
+                    if (it == 0) {
+                        startActivity(Intent(this@MainActivity, FavoriteTeamActivity::class.java))
+                    }
+                }
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

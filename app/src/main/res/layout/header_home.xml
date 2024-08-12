@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
-        android:id="@+id/header_match_datetime"
+        android:id="@+id/tv_header_match_datetime"
         style="@style/BodyMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,20 +24,20 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_match_datetime"
+        app:layout_constraintTop_toBottomOf="@id/tv_header_match_datetime"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="40dp">
 
         <TextView
-            android:id="@+id/header_match_score"
+            android:id="@+id/tv_header_match_score"
             style="@style/TitleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="2 - 1"/>
 
         <Button
-            android:id="@+id/header_match_label"
+            android:id="@+id/tv_header_match_label"
             style="@style/Label.Dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,20 +51,20 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/header_score_ll"
-        app:layout_constraintTop_toBottomOf="@id/header_match_datetime"
+        app:layout_constraintTop_toBottomOf="@id/tv_header_match_datetime"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="16dp">
         
         <ImageView
-            android:id="@+id/header_team1_badge"
+            android:id="@+id/iv_header_team1_badge"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:scaleType="fitXY"
             tools:src="@drawable/man_utd" />
 
         <TextView
-            android:id="@+id/header_team1_name"
+            android:id="@+id/tv_header_team1_name"
             style="@style/TitleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             tools:text="Manchester United" />
 
         <TextView
-            android:id="@+id/header_team1_status"
+            android:id="@+id/tv_header_team1_status"
             style="@style/BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,20 +93,20 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@id/header_score_ll"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_match_datetime"
+        app:layout_constraintTop_toBottomOf="@id/tv_header_match_datetime"
         android:gravity="center"
         android:orientation="vertical"
         android:layout_marginTop="16dp">
 
         <ImageView
-            android:id="@+id/header_team2_badge"
+            android:id="@+id/iv_header_team2_badge"
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:scaleType="fitXY"
             tools:src="@drawable/liverpool" />
 
         <TextView
-            android:id="@+id/header_team2_name"
+            android:id="@+id/tv_header_team2_name"
             style="@style/TitleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
             tools:text="Liverpool" />
 
         <TextView
-            android:id="@+id/header_team2_status"
+            android:id="@+id/tv_header_team2_status"
             style="@style/BodyMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/header_stadium_name"
+        android:id="@+id/tv_header_stadium_name"
         style="@style/BodyMedium"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
@@ -144,7 +144,7 @@
         tools:text="Old Trafford"/>
 
     <TextView
-        android:id="@+id/header_competition_name"
+        android:id="@+id/tv_header_competition_name"
         style="@style/BodyMedium"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
