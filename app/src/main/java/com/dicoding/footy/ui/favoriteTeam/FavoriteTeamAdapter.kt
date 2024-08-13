@@ -5,26 +5,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.dicoding.footy.databinding.FavoriteTeamItemBinding
-import com.dicoding.footy.domain.model.FavoriteTeamItem
+import com.dicoding.footy.domain.model.FavoriteTeam
 
 class FavoriteTeamAdapter(
-    private var teamList: List<FavoriteTeamItem>,
+    private var teamList: List<FavoriteTeam>,
     private var onItemClickCallback: OnItemClickCallback,
 ): RecyclerView.Adapter<FavoriteTeamAdapter.ViewHolder>() {
 
     interface OnItemClickCallback {
-        fun onItemClicked(favoriteTeamItem: FavoriteTeamItem)
+        fun onItemClicked(favoriteTeam: FavoriteTeam)
     }
 
     inner class ViewHolder(
         private val binding: FavoriteTeamItemBinding
     ): RecyclerView.ViewHolder(binding.root) {
-        fun bind(favoriteTeamItem: FavoriteTeamItem) {
+        fun bind(favoriteTeam: FavoriteTeam) {
             Glide.with(binding.root)
-                .load(favoriteTeamItem.badge)
+                .load(favoriteTeam.badge)
                 .into(binding.ivTeamBadge)
-            binding.tvTeamName.text = favoriteTeamItem.name
-            binding.tvTeamCountry.text = favoriteTeamItem.country
+            binding.tvTeamName.text = favoriteTeam.name
+            binding.tvTeamCountry.text = favoriteTeam.country
         }
     }
 
@@ -43,7 +43,7 @@ class FavoriteTeamAdapter(
         }
     }
 
-    fun updateTeamList(newTeamList: List<FavoriteTeamItem>) {
+    fun updateTeamList(newTeamList: List<FavoriteTeam>) {
         teamList = newTeamList
         notifyDataSetChanged()
     }

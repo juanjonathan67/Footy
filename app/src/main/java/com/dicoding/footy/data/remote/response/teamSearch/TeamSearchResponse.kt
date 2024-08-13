@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class TeamSearchResponse(
 
 	@field:SerializedName("response")
-	val response: List<ResponseItem?>? = null,
+	val response: List<TeamSearchItem?>? = null,
 
 	@field:SerializedName("get")
 	val get: String? = null,
@@ -62,7 +62,7 @@ data class Paging(
 	val total: Int? = null
 )
 
-data class ResponseItem(
+data class TeamSearchItem(
 
 	@field:SerializedName("venue")
 	val venue: Venue? = null,

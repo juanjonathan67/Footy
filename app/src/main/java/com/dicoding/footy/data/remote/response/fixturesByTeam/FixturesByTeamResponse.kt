@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class FixturesByTeamResponse(
 
 	@field:SerializedName("response")
-	val response: List<ResponseItem?>? = null,
+	val response: List<FixturesItem?>? = null,
 
 	@field:SerializedName("get")
 	val get: String? = null,
@@ -44,10 +44,10 @@ data class Paging(
 data class Periods(
 
 	@field:SerializedName("first")
-	val first: Any? = null,
+	val first: Int? = null,
 
 	@field:SerializedName("second")
-	val second: Any? = null
+	val second: Int? = null
 )
 
 data class Venue(
@@ -59,13 +59,13 @@ data class Venue(
 	val name: String? = null,
 
 	@field:SerializedName("id")
-	val id: Any? = null
+	val id: Int? = null
 )
 
 data class Away(
 
 	@field:SerializedName("winner")
-	val winner: Any? = null,
+	val winner: Boolean? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -77,7 +77,7 @@ data class Away(
 	val id: Int? = null
 )
 
-data class ResponseItem(
+data class FixturesItem(
 
 	@field:SerializedName("fixture")
 	val fixture: Fixture? = null,
@@ -122,10 +122,10 @@ data class Teams(
 data class Halftime(
 
 	@field:SerializedName("away")
-	val away: Any? = null,
+	val away: Int? = null,
 
 	@field:SerializedName("home")
-	val home: Any? = null
+	val home: Int? = null
 )
 
 data class League(
@@ -134,7 +134,7 @@ data class League(
 	val country: String? = null,
 
 	@field:SerializedName("flag")
-	val flag: Any? = null,
+	val flag: String? = null,
 
 	@field:SerializedName("round")
 	val round: String? = null,
@@ -155,7 +155,7 @@ data class League(
 data class Home(
 
 	@field:SerializedName("winner")
-	val winner: Any? = null,
+	val winner: Boolean? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -170,7 +170,7 @@ data class Home(
 data class Status(
 
 	@field:SerializedName("elapsed")
-	val elapsed: Any? = null,
+	val elapsed: Int? = null,
 
 	@field:SerializedName("short")
 	val short: String? = null,
@@ -182,10 +182,10 @@ data class Status(
 data class Fulltime(
 
 	@field:SerializedName("away")
-	val away: Any? = null,
+	val away: Int? = null,
 
 	@field:SerializedName("home")
-	val home: Any? = null
+	val home: Int? = null
 )
 
 data class Parameters(
@@ -200,19 +200,19 @@ data class Parameters(
 data class Penalty(
 
 	@field:SerializedName("away")
-	val away: Any? = null,
+	val away: Int? = null,
 
 	@field:SerializedName("home")
-	val home: Any? = null
+	val home: Int? = null
 )
 
 data class Extratime(
 
 	@field:SerializedName("away")
-	val away: Any? = null,
+	val away: Int? = null,
 
 	@field:SerializedName("home")
-	val home: Any? = null
+	val home: Int? = null
 )
 
 data class Fixture(
@@ -233,7 +233,7 @@ data class Fixture(
 	val id: Int? = null,
 
 	@field:SerializedName("referee")
-	val referee: Any? = null,
+	val referee: String? = null,
 
 	@field:SerializedName("timestamp")
 	val timestamp: Int? = null,

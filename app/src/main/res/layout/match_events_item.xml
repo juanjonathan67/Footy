@@ -10,16 +10,17 @@
         android:id="@+id/tv_event_minute"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:autoSizeMaxTextSize="18sp"
+        android:autoSizeMaxTextSize="16sp"
+        android:autoSizeMinTextSize="8dp"
         android:autoSizeTextType="uniform"
         android:background="@drawable/ic_circle_hollow"
         android:gravity="center"
-        android:maxLines="1"
+        android:maxLines="2"
         android:padding="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="120'" />
+        tools:text="90+14'" />
 
     <ImageView
         android:id="@+id/iv_event_indicator_left"

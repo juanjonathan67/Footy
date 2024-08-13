@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class EventsResponse(
 
 	@field:SerializedName("response")
-	val response: List<ResponseItem?>? = null,
+	val response: List<EventsItem?>? = null,
 
 	@field:SerializedName("get")
 	val get: String? = null,
@@ -56,19 +56,19 @@ data class Time(
 	val elapsed: Int? = null,
 
 	@field:SerializedName("extra")
-	val extra: Any? = null
+	val extra: Int? = null
 )
 
 data class Assist(
 
 	@field:SerializedName("name")
-	val name: Any? = null,
+	val name: String? = null,
 
 	@field:SerializedName("id")
-	val id: Any? = null
+	val id: Int? = null
 )
 
-data class ResponseItem(
+data class EventsItem(
 
 	@field:SerializedName("comments")
 	val comments: String? = null,

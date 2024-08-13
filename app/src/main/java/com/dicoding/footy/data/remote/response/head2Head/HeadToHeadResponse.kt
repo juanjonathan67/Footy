@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class Head2HeadResponse(
 
 	@field:SerializedName("response")
-	val response: List<ResponseItem?>? = null,
+	val response: List<HeadToHeadItem?>? = null,
 
 	@field:SerializedName("get")
 	val get: String? = null,
@@ -62,7 +62,7 @@ data class Periods(
 data class Away(
 
 	@field:SerializedName("winner")
-	val winner: Any? = null,
+	val winner: Boolean? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -74,7 +74,7 @@ data class Away(
 	val id: Int? = null
 )
 
-data class ResponseItem(
+data class HeadToHeadItem(
 
 	@field:SerializedName("fixture")
 	val fixture: Fixture? = null,
@@ -131,10 +131,10 @@ data class Status(
 	val elapsed: Int? = null,
 
 	@field:SerializedName("short")
-	val jsonMemberShort: String? = null,
+	val short: String? = null,
 
 	@field:SerializedName("long")
-	val jsonMemberLong: String? = null
+	val long: String? = null
 )
 
 data class Score(
@@ -200,7 +200,7 @@ data class Goals(
 data class Home(
 
 	@field:SerializedName("winner")
-	val winner: Any? = null,
+	val winner: Boolean? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -227,17 +227,17 @@ data class Venue(
 data class Penalty(
 
 	@field:SerializedName("away")
-	val away: Any? = null,
+	val away: Int? = null,
 
 	@field:SerializedName("home")
-	val home: Any? = null
+	val home: Int? = null
 )
 
 data class Extratime(
 
 	@field:SerializedName("away")
-	val away: Any? = null,
+	val away: Int? = null,
 
 	@field:SerializedName("home")
-	val home: Any? = null
+	val home: Int? = null
 )

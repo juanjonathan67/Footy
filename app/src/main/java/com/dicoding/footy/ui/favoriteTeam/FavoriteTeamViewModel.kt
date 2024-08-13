@@ -2,8 +2,8 @@ package com.dicoding.footy.ui.favoriteTeam
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dicoding.footy.domain.model.FavoriteTeamItem
-import com.dicoding.footy.domain.repository.FootyRepository
+import com.dicoding.footy.domain.model.FavoriteTeam
+import com.dicoding.footy.domain.useCase.FootyUseCase
 import com.dicoding.footy.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,17 +14,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoriteTeamViewModel @Inject constructor(
-    private val footyRepository: FootyRepository,
+    private val footyUseCase: FootyUseCase,
 ): ViewModel() {
-    private val _teamList: MutableStateFlow<UiState<List<FavoriteTeamItem>>> = MutableStateFlow(UiState.Loading)
-    val teamList: StateFlow<UiState<List<FavoriteTeamItem>>> get() = _teamList
+    private val _teamList: MutableStateFlow<UiState<List<FavoriteTeam>>> = MutableStateFlow(UiState.Loading)
+    val teamList: StateFlow<UiState<List<FavoriteTeam>>> get() = _teamList
 
     fun searchTeam(
         searchQuery: String
     ) {
         viewModelScope.launch {
             try {
-                footyRepository.searchTeam(searchQuery)
+                footyUseCase.searchTeam(searchQuery)
                     .catch {
                         _teamList.value = UiState.Error(it.message.toString())
                     }

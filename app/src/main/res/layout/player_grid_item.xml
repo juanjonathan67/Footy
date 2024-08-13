@@ -5,7 +5,7 @@
     <data>
         <variable
             name="player"
-            type="com.dicoding.footy.domain.model.PlayerGrid" />
+            type="com.dicoding.footy.domain.model.PlayerInLineup" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="@color/black"
-            android:text="@{player.playerName}" />
+            android:text="@{player.name}" />
 
         <TextView
             android:id="@+id/tv_player_number"
@@ -36,7 +36,7 @@
             android:gravity="center"
             android:maxLines="1"
             android:textColor="@color/white"
-            android:text="@{player.playerNumber}" />
+            android:text="@{player.number}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

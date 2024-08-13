@@ -10,9 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.footy.MainActivity
-import com.dicoding.footy.R
 import com.dicoding.footy.databinding.ActivityFavoriteTeamBinding
-import com.dicoding.footy.domain.model.FavoriteTeamItem
+import com.dicoding.footy.domain.model.FavoriteTeam
 import com.dicoding.footy.domain.repository.UserPreferencesRepository
 import com.dicoding.footy.utils.UiState
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -49,15 +48,15 @@ class FavoriteTeamActivity : AppCompatActivity() {
         }
 
         favoriteTeamAdapter = FavoriteTeamAdapter(emptyList(), object : FavoriteTeamAdapter.OnItemClickCallback {
-            override fun onItemClicked(favoriteTeamItem: FavoriteTeamItem) {
+            override fun onItemClicked(favoriteTeam: FavoriteTeam) {
                 MaterialAlertDialogBuilder(this@FavoriteTeamActivity)
                     .setTitle("Choose Favorite Team")
-                    .setMessage("Are you sure to pick ${favoriteTeamItem.name} as your favorite Team?")
+                    .setMessage("Are you sure to pick ${favoriteTeam.name} as your favorite Team?")
                     .setNeutralButton("Cancel") { dialog, _ ->
                         dialog.cancel()
                     }
                     .setPositiveButton("Confirm") { dialog, _ ->
-                        runBlocking { userPreferencesRepository.saveFavoriteTeamId(favoriteTeamItem.id) }
+                        runBlocking { userPreferencesRepository.saveFavoriteTeamId(favoriteTeam.id) }
                         dialog.dismiss()
                         startActivity(Intent(this@FavoriteTeamActivity, MainActivity::class.java))
                     }

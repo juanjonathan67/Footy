@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class LineupsResponse(
 
 	@field:SerializedName("response")
-	val response: List<ResponseItem?>? = null,
+	val response: List<LineupsItem?>? = null,
 
 	@field:SerializedName("get")
 	val get: String? = null,
@@ -26,10 +26,10 @@ data class LineupsResponse(
 data class Colors(
 
 	@field:SerializedName("goalkeeper")
-	val goalkeeper: Goalkeeper? = null,
+	val goalkeeper: ShirtColor? = null,
 
 	@field:SerializedName("player")
-	val player: Player? = null
+	val player: ShirtColor? = null
 )
 
 data class StartXIItem(
@@ -59,7 +59,7 @@ data class Paging(
 	val total: Int? = null
 )
 
-data class ResponseItem(
+data class LineupsItem(
 
 	@field:SerializedName("substitutes")
 	val substitutes: List<SubstitutesItem?>? = null,
@@ -89,7 +89,7 @@ data class Coach(
 	val id: Int? = null
 )
 
-data class Goalkeeper(
+data class ShirtColor(
 
 	@field:SerializedName("border")
 	val border: String? = null,
@@ -131,7 +131,7 @@ data class Player(
 	val pos: String? = null,
 
 	@field:SerializedName("grid")
-	val grid: Any? = null,
+	val grid: String? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
